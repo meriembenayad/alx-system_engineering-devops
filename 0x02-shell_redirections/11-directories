@@ -1,2 +1,2 @@
 #!/bin/bash
-find -type d -ls | wc -l
+ls -a | grep ^p | wc -l
