@@ -1,0 +1,2 @@
+#!/bin/bash
+echo -e '"Everyone is a proponent of strong encryption. "\n - Dorothy E. Dennin' | tr 'A-Za-z' 'N-ZA-Mn-za-m'
