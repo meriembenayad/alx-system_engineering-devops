@@ -1,1 +1,15 @@
-#!/usr/bin/bash
+#!/usr/bin/env bash
+# Bash script that displays numbers from 1 to 20.
+((i=1))
+while (( i <= 20)); do
+	if ((i == 4)); then
+		echo -e "$i\nbad luck from China"
+	elif ((i == 9)); then
+		echo -e "$i\nbad luck from Japan"
+	elif ((i == 17)); then
+		echo -e "$i\nbad luck from Italy"
+	else
+		echo "$i"
+	fi
+	((i++))
+done
