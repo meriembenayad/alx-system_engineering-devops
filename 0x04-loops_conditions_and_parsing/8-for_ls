@@ -1,5 +1,5 @@
 #!/usr/bin/env bash
 cmd_ls=$(ls)
 for file in $cmd_ls; do
-	echo "$file" | cut -d "-" -f 2
+	echo "$file" | cut -d '-' -f 2
 done
