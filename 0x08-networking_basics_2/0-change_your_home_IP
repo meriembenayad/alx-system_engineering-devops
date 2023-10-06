@@ -4,6 +4,6 @@
 new_localhost="127.0.0.2"
 new_fb="8.8.8.8"
 cp /etc/hosts/ ~/hosts.new
-sed -i "s|127\.0\.0\.1|$new_localhost|g" ~/hosts.new
-sed -i "s|facebook\.com|$new_fb|g" ~/hosts.new
+sed -i "s/127.*$/$new_localhost localhost" ~/hosts.new
+sed -i "s/$new_fb facebook.com" ~/hosts.new
 cp -f ~/hosts.new /etc/hosts
