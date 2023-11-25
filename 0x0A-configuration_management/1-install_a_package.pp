@@ -1,6 +1,10 @@
 # Install Flask 2.1.0 and update Werkzeug
+package { 'python3':
+  ensure => installed,
+}
+
 package { 'werkzeug':
-  ensure   => '0.16.1',
+  ensure   => '2.1.1',
   provider => 'pip3',
 }
 
