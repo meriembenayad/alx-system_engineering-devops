@@ -1,5 +1,5 @@
 #!/usr/bin/env bash
--- Creates an RSA key pair.
+# Creates an RSA key pair.
 key_name="school"
 key_bits=4096
 key_pass="betty"
