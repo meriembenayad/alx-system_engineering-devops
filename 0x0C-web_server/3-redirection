@@ -6,7 +6,7 @@ sudo apt -y upgrade
 sudo apt -y install nginx
 
 file=/var/www/html/index.html
-file_re=/etc/nginx/sites_available/default
+file_re=/etc/nginx/sites-available/default
 
 echo 'server {
     listen 80;
