@@ -1,35 +1,32 @@
-# Install nginx
+# Install Nginx package
 package { 'nginx':
   ensure => 'installed',
 }
 
-# file index
-file { '/var/www/html/index.html':
-  ensure  => 'file',
-  content => 'Hello World!',
-  mode    => '0644',
-  require => Package['nginx'],
+# Configure Nginx
+file { '/etc/nginx/sites-available/default':
+  ensure  => file,
+  content => "
+    server {
+      listen 80;
+      server_name _;
+
+      location / {
+        return 200 'Hello World!';
+      }
+
+      location /redirect_me {
+        return 301 /;
+      }
+    }
+  ",
+  notify => Service['nginx'],
 }
 
-# redirect_me file
-file_line { 'redirect_me':
-  ensure => present,
-  path   => '/etc/nginx/sites-available/default',
-  after  => 'server_name _;'
-  line   => '
-    location /redirect_me {
-      return 301 https://www.youtube.com/watch?v=QH2-TGUlwu4;
-    }',
-}
-
-# Stop nginx
-exec { 'stop service':
-  command => 'sudo service nginx stop',
-  path    => ['/bin', '/usr/bin', '/usr/sbin'],
-}
-
-# Run nginx
-exec { 'start service':
-  command => 'sudo service nginx start',
-  path    => ['/bin', '/usr/bin', '/usr/sbin'],
+# Enable Nginx service and start it
+service { 'nginx':
+  ensure     => 'running',
+  enable     => true,
+  hasstatus  => true,
+  hasrestart => true,
 }
