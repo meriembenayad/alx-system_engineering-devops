@@ -8,9 +8,19 @@ sudo apt -y install nginx
 file=/var/www/html/index.html
 file_re=/etc/nginx/sites_available/default
 
-sudo bash -c "echo 'Hello World!' > $file"
-service nginx start
+echo 'server {
+    listen 80;
+    server_name _;
 
-location="location /redirect_me {\nreturn 301 https://www.youtube.com/watch?v=QH2-TGUlwu4;\n}\n"
-sudo sed -i "30i $location" $file_re
+    location /redirect_me {
+	return 301 https://www.youtube.com/watch?v=QH2-TGUlwu4;
+    }
+
+    location / {
+	root /var/www/html;
+	index index.html;
+    }
+}' | sudo tee $file_re
+
+sudo bash -c "echo 'Hello World!' > $file"
 sudo service nginx restart
