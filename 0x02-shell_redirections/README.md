@@ -8,7 +8,7 @@ Unless stated, all your projects will be auto-corrected with Ubuntu 20.04 LTS.
 
 _For this project, we expect you to look at this concept:_
 
-- [Struggling with the sandbox? Try this: Using Docker & WSL on your local host](https://intranet.alxswe.com/concepts/100039)
+- [Struggling with the sandbox? Try this: Using Docker & WSL on your local host](../0x00-shell_basics/Struggling_with_the_sandbox.md)
 
 ### Resources
 
