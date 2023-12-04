@@ -1,1 +1,35 @@
-#!/usr/bin/env bash
+#!/bin/bash
+# Install nginx web server and configure it
+
+# Update and upgrade the system
+sudo apt-get -y update
+sudo apt-get -y upgrade
+
+# Install nginx
+sudo apt -y install nginx
+
+# Define file paths
+file=/var/www/html/index.html
+file_re=/etc/nginx/sites-available/default
+error_page=/var/www/html/error.html
+
+# Configure ngnix
+echo 'server {
+    listen 80;
+    server_name _;
+
+    location / {
+	root /var/www/html;
+	index index.html;
+	error_page 404 /error.html;
+    }
+}' | sudo $file_re
+
+# Create the error page
+echo "Ceci n'est pas une page" | sudo tee $error_page
+
+# Create index page
+sudo bash -c "echo 'Hello World!' > $file"
+
+# Restart Nginx to apply the changes
+sudo service nginx restart
