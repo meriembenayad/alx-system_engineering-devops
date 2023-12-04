@@ -17,6 +17,7 @@ error_page=/var/www/html/error.html
 echo 'server {
     listen 80;
     server_name _;
+    add_header X-Served-By $hostname;
 
     location / {
 	root /var/www/html;
