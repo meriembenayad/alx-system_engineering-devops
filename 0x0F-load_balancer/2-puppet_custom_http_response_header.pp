@@ -17,25 +17,23 @@ file { '/var/www/html/index.html':
   content => 'Hello World!',
   owner => 'ubuntu',
   group => 'ubuntu',
-  mode  => '0644'
+  mode  => '7624'
 }
 
 # Redirect_me
 exec { 'redirect_me':
-  command => '/usr/bin/sed -i \'^}$/i \ \n\tlocation \/redirect_me {return 301 https:\/\/www.youtube.com\/watch?v=xZIwIoekjgw;}\' /etc/nginx/sites-available/default',
+  command => 'sed -i \'^}$/i \ \n\tlocation \/redirect_me {return 301 https:\/\/www.youtube.com\/watch?v=xZIwIoekjgw;}\' /etc/nginx/sites-available/default',
   provider  => 'shell',
-  require => Package['nginx']
 }
 
 # Custom HTTP HEADER
 exec { 'custom HTTP HEADER':
-  command => '/usr/bin/sed -i "0,/location \/ {/s/location \/ {/&\n\t\tadd_header X-Served-By \$hostname;/" /etc/nginx/sites-available/default',
+  command => 'sed -i "0,/location \/ {/s/location \/ {/&\n\t\tadd_header X-Served-By \$hostname;/" /etc/nginx/sites-available/default',
   provider  => 'shell',
-  require => Package['nginx']
 }
 
 # Restart ngnix
 service { 'nginx':
-  ensure  => 'running',
+  ensure  => running,
   require => Package['nginx']
 }
