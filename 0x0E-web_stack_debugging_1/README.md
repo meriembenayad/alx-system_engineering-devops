@@ -27,21 +27,21 @@ _For this project, we expect you to look at these concepts:_
 ### Tasks
 
 <details>
-<summary>0. Nginx likes port 80<summary>
+<summary>0. Nginx likes port 80</summary>
 
->Debug your Ubuntu container's Nginx installation to identify the impediment preventing it from listening on port `80`. Utilize your debugging proficiency, install necessary tools, and manipulate containers as needed to troubleshoot the problem. Subsequently, devise a Bash script with the least number of commands to automate the resolution.
+Debug your Ubuntu container's Nginx installation to identify the impediment preventing it from listening on port `80`. Utilize your debugging proficiency, install necessary tools, and manipulate containers as needed to troubleshoot the problem. Subsequently, devise a Bash script with the least number of commands to automate the resolution.
 
->***Specifications:***
+***Specifications:***
 
->- Ensure Nginx is operational and listening on port `80` for all active IPv4 addresses on the server.
->- Develop a Bash script that configures the server to meet the specified requirements.
+- Ensure Nginx is operational and listening on port `80` for all active IPv4 addresses on the server.
+- Develop a Bash script that configures the server to meet the specified requirements.
 
 ***
 - File: `0-nginx_likes_port_80`
 </details>
 
 <details>
-<summary>1. Make it sweet and short<summary>
+<summary>1. Make it sweet and short</summary>
 
 Refine your solution for task #0, ensuring brevity and simplicity.
 
