@@ -4,6 +4,16 @@
 domain=$1
 subdomain=$2
 
-if [ "$#" -eq 1 ]; then
+display_info {
 	echo "$(dig $2.$1 | grep -A1 'ANSWER SECTION:' | tail -1 | awk '{split($1, parts, ".");print "The subdomain " parts[1] " is a " $4 " record and points to " $5}'
+}
+
+if [ "$#" -eq 1 ]; then
+	domains=("www" "lb-01" "web-01" "web-02")
+	for sub in "$domains[@]"
+	do
+		display_info $sub
+	done
+else
+	display_info $subdomain
 fi
