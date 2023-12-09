@@ -1,1 +1,10 @@
-#!/usr/bin/env bash
+frontend www-https
+        bind *:80
+        bind *:443 ssl crt /etc/ssl/private/www.miram.tech.pem
+        redirect scheme https code 301 if !{ ssl_fc }
+        default_backend www-backend
+
+backend www-backend
+        balance roundrobin
+        server 328201-web-01 3.85.196.229:80 check
+        server 328201-web-02 34.207.221.84:80 check
