@@ -6,8 +6,6 @@ _For this project, we expect you to look at this concept:_
 
 - [Web stack debugging](../0x0D-web_stack_debugging_0/web_stack_debugging.md)
 
-![](https://s3.amazonaws.com/intranet-projects-files/holbertonschool-sysadmin_devops/284/V1HjQ1Y.png)
-
 ### Background Context
 
 #### Your servers without a firewall…
