@@ -15,7 +15,7 @@ def list_dictionaries():
     with open(f'todo_all_employees.json', mode='w', encoding='utf-8') as file:
         json.dump({user.get('id'): [
             {
-                'usename': user.get('username'),
+                'username': user.get('username'),
                 'task': task.get('title'),
                 'completed': task.get('completed')
             }
