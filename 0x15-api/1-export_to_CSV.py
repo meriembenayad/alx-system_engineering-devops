@@ -13,13 +13,13 @@ def export_to_csv(user_id):
     todos_list = requests.get(todos_url).json()
     users_list = requests.get(users_url).json()
 
-    user_name = users_list['name']
+    username = users_list['username']
 
     with open(f'{user_id}.csv', mode='w', encoding='utf-8') as file:
         for task in todos_list:
             completed = task.get('completed')
             title = task.get('title')
-            file.write(f'"{user_id}","{user_name}","{completed}","{title}"\n')
+            file.write(f'"{user_id}","{username}","{completed}","{title}"\n')
 
 
 if __name__ == "__main__":
