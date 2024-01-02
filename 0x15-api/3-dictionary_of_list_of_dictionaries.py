@@ -1,8 +1,8 @@
 #!/usr/bin/python3
 """ Dictionary of list of diectionaries """
+import json
 import requests
 from sys import argv
-import json
 
 
 def list_dictionaries():
