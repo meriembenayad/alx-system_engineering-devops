@@ -1,12 +1,12 @@
 #!/usr/bin/python3
-""" Gather data from an API """
+""" EXport to JSON """
 import requests
 from sys import argv
 import json
 
 
 def export_to_json(user_id):
-    """ Return TODOS list progress for a given employee_id """
+    """ Export JSON TODOS list progress for a given employee_id """
     api_url = 'https://jsonplaceholder.typicode.com/'
     todos_url = f'{api_url}/users/{user_id}/todos'
     users_url = f'{api_url}/users/{user_id}'
