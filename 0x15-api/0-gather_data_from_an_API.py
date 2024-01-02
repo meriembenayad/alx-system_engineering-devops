@@ -18,8 +18,8 @@ def get_todos_by_employee(employee_id):
     completed = [task.get('title')
                  for task in todos_list if task.get('completed') is True]
 
-    print(
-        f'Employee {user_name} is done with tasks({len(completed)}/{len(todos_list)})')
+    print('Employee {} is done with tasks({}/{}):'
+          .format(user_name, len(completed), len(todos_list)))
 
     for task in completed:
         print(f'\t {task}')
