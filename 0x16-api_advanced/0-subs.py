@@ -8,7 +8,7 @@ def number_of_subscribers(subreddit):
     """ Return number of subscriber """
     api_url = f'https://www.reddit.com/r/{subreddit}/about.json'
     headers = {
-        "User-Agent": "Mira"
+        "User-Agent": "windows:0x16.api.advanced:v1.0.0 (by /u/mira)"
     }
     response = requests.get(api_url, headers=headers, allow_redirects=False)
     if response.status_code == 404:

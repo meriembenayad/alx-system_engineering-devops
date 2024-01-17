@@ -8,7 +8,7 @@ def top_ten(subreddit):
     """ Return top 10 hot posts titles """
     api_url = f'https://www.reddit.com/r/{subreddit}/hot.json'
     headers = {
-        "User-Agent": "Mira top"
+        "User-Agent": "windows:0x16.api.advanced:v1.0.0 (by /u/mira)"
     }
     params = {
         "limit": 10
