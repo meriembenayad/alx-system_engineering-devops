@@ -8,7 +8,7 @@ def top_ten(subreddit):
     """ Return top 10 hot posts titles """
     api_url = f'https://www.reddit.com/r/{subreddit}/hot.json'
     headers = {
-        "User-Agent": "windows:0x16.api.advanced:v1.0.0 (by /u/mira)"
+        "user-agent": "windows:0x16.api.advanced:v1.0.0 (by /u/mira)"
     }
     params = {
         "limit": 10
@@ -17,7 +17,8 @@ def top_ten(subreddit):
                             params=params, allow_redirects=False)
     if response.status_code != 200:
         print('None')
+        return
 
-    data = response.json()['data']['children']
-    for post in data:
-        print(post['data']['title'])
+    data = response.json().get('data')
+    for post in data.get('children'):
+        print(post.get('data').get('title'))
