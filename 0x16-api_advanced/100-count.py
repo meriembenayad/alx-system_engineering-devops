@@ -18,11 +18,12 @@ def count_words(subreddit, word_list, after=""):
         "after": after
     }
 
-    response = requests.get(url, headers=headers, params=params, allow_redirects=False)
+    response = requests.get(url, headers=headers,
+                            params=params, allow_redirects=False)
 
     if response.status_code != 200:
         return {}
-    
+
     data = response.json().get('data')
     counts = dict.fromkeys(word_list, 0)
 
@@ -43,9 +44,14 @@ def count_words(subreddit, word_list, after=""):
 
     return counts
 
+
 def print_sorted_counts(counts):
-    """ Function to print the counts in descending order and then alphabetically. """
-    sorted_items = sorted(counts.items(), key=lambda x: (-x[1], x[0]))
+    """
+    Function to print the counts in descending order
+    and then alphabetically.
+    """
+    sorted_items = sorted(counts.items(),
+                          key=lambda x: (-x[1], x[0]))
 
     for word in sorted_items:
         if counts > 0:
