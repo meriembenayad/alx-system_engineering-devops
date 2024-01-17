@@ -15,7 +15,7 @@ def top_ten(subreddit):
     }
     response = requests.get(api_url, headers=headers,
                             params=params, allow_redirects=False)
-    if response.status_code != 200:
+    if response.status_code != 200 or not response.text:
         print('None')
         return
 
